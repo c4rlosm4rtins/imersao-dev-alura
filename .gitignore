@@ -1,0 +1,15 @@
+# System files
+.DS_Store
+
+# Executables
+*.out
+*.cache_exists
+
+# Temp files
+*.swp
+
+# Debug files
+*.dSYM/
+
+# VS Code
+.vscode/

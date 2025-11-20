@@ -1,0 +1,14 @@
+[
+{
+    "nome": "Debian",
+    "descricao": "Debian é um sistema operacional livre e de código aberto, baseado no kernel Linux, conhecido pela sua estabilidade, segurança e universalidade. Ele é desenvolvido e mantido por uma comunidade global de voluntários e serve de base para muitas outras distribuições Linux, como o popular Ubuntu. O Debian é usado em uma vasta gama de dispositivos, desde laptops e desktops até servidores",
+    "ano": 1993,
+    "link": "https://www.debian.org/"
+},
+{
+    "nome": "Ubuntu",
+    "descricao": "Ubuntu é um sistema operacional livre e de código aberto, baseado no kernel Linux, que pode ser usado em computadores pessoais, servidores e dispositivos IoT. Desenvolvido pela empresa Canonical, é conhecido pela facilidade de uso, estabilidade e é uma alternativa gratuita a sistemas como Windows ou macOS.",
+    "ano": 2004,
+    "link": "https://www.ubuntu.com/"
+}
+]

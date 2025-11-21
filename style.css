@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap'); /* Importa a fonte Quicksand do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Special+Gothic:wght@400..700&display=swap');
 
 * {
     box-sizing: border-box; /* Garante que padding e border não aumentem o tamanho total do elemento */
@@ -15,7 +15,7 @@ body {
     margin: 0; /* Remove a margem padrão do body */
     background: var(--bg-color); /* Define a cor de fundo usando uma variável */
     color: var(--secondary-color); /* Define a cor do texto padrão usando uma variável */
-    font-family: "Quicksand", sans-serif; /* Define a família da fonte */
+    font-family: "Special Gothic", sans-serif;
 }
 
 header {
@@ -155,6 +155,9 @@ article a:hover {
     background-color: var(--bg-color); /* Cor de fundo */
     padding: 15px 20px; /* Espaçamento interno */
     border-top: 1px solid #3c4043; /* Borda superior */
+    display: flex; /* Usa Flexbox */
+    flex-direction: column; /* Organiza os itens em coluna */
+    align-items: center; /* Centraliza os itens horizontalmente */
     font-size: 0.8rem; /* Tamanho da fonte */
 }
 
@@ -167,7 +170,7 @@ article a:hover {
     list-style: none; /* Remove os marcadores da lista */
     display: flex; /* Habilita o layout flexbox */
     flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
-    justify-content: center; /* Centraliza os itens horizontalmente */
+    padding: 0; /* Remove o padding padrão da lista */
     gap: 15px; /* Espaçamento entre os links */
 }
 

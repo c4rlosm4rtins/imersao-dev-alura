@@ -1,21 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Special+Gothic:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 
 * {
     box-sizing: border-box; /* Garante que padding e border não aumentem o tamanho total do elemento */
 }
 
 :root {
-    --primary-color: #8ab4f8; /* Cor primária (azul claro) */
-    --secondary-color: #e8eaed; /* Cor secundária (cinza claro) */
-    --tertiary-color: #9aa0a6; /* Cor terciária (cinza médio) */
-    --bg-color: #202124; /* Cor de fundo (cinza escuro) */
+    --primary-color: #00f2a5; /* Verde tecnológico para destaque */
+    --secondary-color: #f8f9fa; /* Branco suave para texto principal */
+    --tertiary-color: #888; /* Cinza mais claro para texto secundário */
+    --bg-color: #121212; /* Fundo escuro profundo */
+    --card-bg-color: #1e1e1e; /* Fundo dos cards */
+    --border-color: #333; /* Cor de borda sutil */
+}
+
+/* Scrollbar personalizada para um look mais integrado */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
 }
 
 body {
+    display: flex; /* Usa flexbox para o layout principal */
+    flex-direction: column; /* Organiza os elementos em coluna */
+    min-height: 100vh; /* Garante que o body ocupe no mínimo a altura total da tela */
     margin: 0; /* Remove a margem padrão do body */
     background: var(--bg-color); /* Define a cor de fundo usando uma variável */
     color: var(--secondary-color); /* Define a cor do texto padrão usando uma variável */
-    font-family: "Special Gothic", sans-serif;
+    font-family: 'Inter', sans-serif; /* Fonte mais moderna e legível */
 }
 
 header {
@@ -25,9 +42,10 @@ header {
     justify-content: space-around; /* Distribui os itens com espaço ao redor */
     position: sticky; /* Mantém o cabeçalho fixo no topo ao rolar a página */
     top: 0; /* Posição do topo quando sticky */
-    background: var(--bg-color); /* Cor de fundo do cabeçalho */
+    background: rgba(18, 18, 18, 0.85); /* Fundo com leve transparência */
+    backdrop-filter: blur(10px); /* Efeito de desfoque para o fundo */
     z-index: 10; /* Define a ordem de empilhamento para ficar sobre outros elementos */
-    border-bottom: 1px solid var(--bg-color); /* Adiciona uma borda inferior */
+    border-bottom: 1px solid var(--border-color); /* Borda inferior mais visível */
     gap: 1rem; /* Espaçamento entre os elementos flex */
 }
 
@@ -36,52 +54,61 @@ header h1 {
     margin: 0; /* Remove a margem padrão */
     font-weight: 500; /* Peso da fonte (médio) */
     white-space: nowrap; /* Impede a quebra de linha do texto */
+    cursor: pointer; /* Indica que o título é clicável */
 }
 
-div input {
-    padding: 0.375rem 0.75rem; /* Espaçamento interno */
-    border-radius: 1rem; /* Arredonda as bordas */
-    border: 1px solid var(--tertiary-color); /* Define a borda */
-    background: var(--bg-color); /* Cor de fundo */
+header h1:hover {
+    color: var(--primary-color); /* Muda a cor ao passar o mouse para dar feedback */
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+#campo-busca {
+    padding: 0.75rem 1rem; /* Espaçamento interno */
+    border-radius: 8px 0 0 8px; /* Bordas arredondadas apenas à esquerda */
+    border: 1px solid var(--border-color); /* Define a borda */
+    border-right: none; /* Remove a borda direita para unir ao botão */
+    background: var(--card-bg-color); /* Cor de fundo */
     font-family: inherit; /* Herda a família da fonte do elemento pai */
-    font-size: 1.5rem; /* Tamanho da fonte */
+    font-size: 1.2rem; /* Tamanho da fonte maior */
     transition: all 0.2s ease; /* Adiciona uma transição suave para todas as propriedades */
-    width: 30rem; /* Largura do input */
+    width: 28rem; /* Largura do input */
     color: var(--secondary-color); /* Cor do texto digitado */
-    margin-right: .5rem; /* Margem à direita */
 }
 
-div input::placeholder {
+#campo-busca::placeholder {
     font-size: 1.2rem; /* Tamanho da fonte do placeholder */
-    font-weight: 300; /* Peso da fonte do placeholder */
+    font-weight: 400; /* Peso da fonte do placeholder */
     color: var(--tertiary-color); /* Cor do texto do placeholder */
 }
 
-div input:focus {
+#campo-busca:focus {
     outline: none; /* Remove a borda de foco padrão */
-    border-color: var(--bg-color); /* Muda a cor da borda ao focar */
-    box-shadow: 0 0 0 0.1rem var(--tertiary-color); /* Adiciona uma sombra de caixa para indicar foco */
+    border-color: var(--primary-color); /* Muda a cor da borda ao focar */
+    box-shadow: 0 0 0 3px rgba(0, 242, 165, 0.2); /* Sombra de caixa com a nova cor */
 }
 
 #botao-busca {
-    padding: 1rem 2rem; /* Espaçamento interno */
-    border-radius: 1rem; /* Arredonda as bordas */
+    padding: 0.75rem 1.25rem; /* Espaçamento interno ajustado */
+    border-radius: 0 8px 8px 0; /* Bordas arredondadas apenas à direita */
     border: none; /* Remove a borda padrão */
     cursor: pointer; /* Muda o cursor para uma mão ao passar por cima */
-    font-family: inherit; /* Herda a família da fonte */
-    font-weight: 500; /* Peso da fonte */
-    font-size: 1rem; /* Tamanho da fonte */
-    white-space: nowrap; /* Impede a quebra de linha do texto */
     transition: background-color 0.2s ease, color 0.2s ease; /* Transição suave para cor de fundo e cor do texto */
-    background-color: var(--bg-color); /* Cor de fundo */
-    color: var(--secondary-color); /* Cor do texto */
-    border: 1px solid var(--bg-color); /* Adiciona uma borda */
+    background-color: var(--primary-color); /* Cor de fundo */
+    color: #121212; /* Cor do ícone (preto para contraste) */
+    border: 1px solid var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #botao-busca:hover {
-    background-color: var(--primary-color); /* Muda a cor de fundo ao passar o mouse */
-    color: var(--bg-color); /* Muda a cor do texto ao passar o mouse */
-    box-shadow: 0 0 0 0.1rem var(--primary-color); /* Adiciona uma sombra de caixa */
+    background-color: #00c98b; /* Tom mais escuro do verde no hover */
+    color: #121212;
+    border-color: #00c98b;
 }
 
 #botao-busca:active {
@@ -89,28 +116,38 @@ div input:focus {
 }
 
 main {
-    overflow-y: scroll; /* Adiciona uma barra de rolagem vertical se o conteúdo exceder a altura */
+    flex-grow: 1; /* Faz o main ocupar todo o espaço disponível entre o header e o footer */
+    overflow-y: auto; /* Adiciona rolagem apenas se necessário */
     max-width: 80rem; /* Largura máxima do conteúdo principal */
     margin: 0 auto; /* Centraliza o conteúdo principal horizontalmente */
-    margin-top: 2rem; /* Margem no topo */
-    height: calc(100vh - 10rem - 4rem); /* Calcula a altura para preencher o espaço restante da tela */
+    width: 100%; /* Garante que o main ocupe a largura disponível */
+    padding: 2rem 1rem; /* Adiciona mais espaçamento vertical */
+}
+
+main.results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
 }
 
 article {
-    background: none; /* Sem cor de fundo */
-    border-radius: 0; /* Sem bordas arredondadas */
-    padding: 0; /* Remove o padding */
-    padding: 0 1rem; /* Espaçamento interno nos lados */
-    margin-bottom: 1.25rem; /* Margem inferior */
-    box-shadow: none; /* Sem sombra */
-    transition: background-color 0.3s ease, border-bottom-color 0.3s ease; /* Transição suave */
-    border-bottom: 1px solid var(--bg-color); /* Borda inferior */
-    padding-bottom: 1.5rem; /* Espaçamento interno inferior */
+    position: relative; /* Necessário para o efeito de brilho */
+    background: var(--card-bg-color); /* Fundo do card */
+    border-radius: 8px; /* Bordas menos arredondadas */
+    padding: 1.5rem; /* Espaçamento interno */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
+    border: 1px solid var(--border-color);
+    overflow: hidden; /* Esconde o brilho que sai para fora */
 }
 
 article:hover {
-    transform: scale(1.01); /* Aumenta ligeiramente o tamanho ao passar o mouse */
-    cursor: pointer; /* Muda o cursor para uma mão */
+    transform: translateY(-5px); /* Efeito de elevação */
+    border-color: var(--primary-color); /* Destaca a borda com a cor primária */
+    box-shadow: 0 6px 12px rgba(0, 242, 165, 0.1); /* Sombra de destaque suave */
+}
+article:hover h2 {
+    color: var(--secondary-color); /* Deixa o título branco para maior contraste */
 }
 
 article h2 {
@@ -120,20 +157,44 @@ article h2 {
     border-bottom: none; /* Sem borda inferior */
     padding-bottom: 0; /* Sem espaçamento interno inferior */
     margin-bottom: 0.25rem; /* Margem inferior */
-    color: var(--primary-color); /* Cor do texto */
+    color: var(--primary-color); /* Cor do texto padrão do título */
+    transition: color 0.3s ease; /* Transição suave para a cor do título */
 }
 
 article p {
     margin: 0.5rem 0; /* Margem superior e inferior */
-    line-height: 1.6; /* Altura da linha para melhor legibilidade */
+    line-height: 1.7; /* Altura da linha para melhor legibilidade */
     font-size: 1rem; /* Tamanho da fonte */
     margin-bottom: 0.5rem; /* Margem inferior */
-    color: var(--secondary-color); /* Cor do texto */
+    color: var(--tertiary-color); /* Texto da descrição com cor secundária */
 }
 
 article p strong {
-    color: var(--tertiary-color); /* Cor do texto em negrito */
+    color: #bbb; /* Cor do texto em negrito */
     font-weight: 400; /* Peso da fonte */
+}
+
+.no-results {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 4rem;
+}
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.tag {
+    background-color: rgba(0, 242, 165, 0.1);
+    color: var(--primary-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid rgba(0, 242, 165, 0.2);
 }
 
 article a {
@@ -147,23 +208,17 @@ article a:hover {
 }
 
 .footer {
-    position: absolute; /* Posicionamento absoluto em relação ao elemento pai posicionado */
-    bottom: 0; /* Alinha na parte inferior */
-    left: 0; /* Alinha à esquerda */
     width: 100%; /* Largura total */
     color: var(--tertiary-color); /* Cor do texto */
     background-color: var(--bg-color); /* Cor de fundo */
-    padding: 15px 20px; /* Espaçamento interno */
-    border-top: 1px solid #3c4043; /* Borda superior */
+    padding: 1rem; /* Espaçamento interno reduzido */
+    border-top: 1px solid var(--border-color); /* Borda superior */
     display: flex; /* Usa Flexbox */
-    flex-direction: column; /* Organiza os itens em coluna */
-    align-items: center; /* Centraliza os itens horizontalmente */
-    font-size: 0.8rem; /* Tamanho da fonte */
-}
-
-.footer-location {
-    color: #9aa0a6; /* Cor do texto */
-    margin-bottom: 10px; /* Margem inferior */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    align-items: center;
+    font-size: 0.75rem; /* Tamanho da fonte reduzido */
+    flex-wrap: wrap; /* Permite que os links quebrem em telas menores */
+    gap: 1rem; /* Espaçamento entre os itens */
 }
 
 .footer-links {
@@ -171,7 +226,7 @@ article a:hover {
     display: flex; /* Habilita o layout flexbox */
     flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
     padding: 0; /* Remove o padding padrão da lista */
-    gap: 15px; /* Espaçamento entre os links */
+    gap: 1rem; /* Espaçamento entre os links */
 }
 
 .footer-links a {
@@ -181,12 +236,23 @@ article a:hover {
 }
 
 .footer-links a:hover {
-    color: var(--accent-color); /* Muda a cor do link ao passar o mouse (variável não definida) */
+    color: var(--primary-color); /* Muda a cor do link ao passar o mouse */
+}
+
+/* Animação de Fade-in para os cards */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @media (max-width: 768px) {
     header { /* Estilos para telas com largura máxima de 768px */
-        flex-direction: column; /* Organiza os itens do cabeçalho em coluna */
         padding: 1rem; /* Reduz o espaçamento interno */
     }
 
@@ -195,13 +261,21 @@ article a:hover {
         margin-bottom: 1rem; /* Adiciona margem inferior */
     }
 
-    div input { /* Estilos para o input em telas menores */
-        width: 90vw; /* Largura baseada na largura da viewport */
-        font-size: 1.2rem; /* Reduz o tamanho da fonte */
+    .search-container {
+        width: 90%;
+    }
+
+    #campo-busca { /* Estilos para o input em telas menores */
+        width: 100%; /* Ocupa todo o espaço do container */
     }
 
     main { /* Estilos para o main em telas menores */
-        padding: 0 1rem; /* Adiciona espaçamento lateral */
+        padding: 1rem; /* Adiciona espaçamento lateral */
+    }
+
+    main.results-grid {
+        grid-template-columns: 1fr; /* Em telas menores, volta para uma coluna */
+        padding: 0;
     }
 
     article:hover { /* Estilos para o article em telas menores */
@@ -216,21 +290,13 @@ article a:hover {
         word-wrap: break-word; /* Permite a quebra de palavras longas */
     }
 
-    div input, /* Estilos para o input e seu placeholder em telas muito pequenas */
-    div input::placeholder {
+    #campo-busca, /* Estilos para o input e seu placeholder em telas muito pequenas */
+    #campo-busca::placeholder {
         font-size: 1rem; /* Reduz o tamanho da fonte */
     }
 
     article h2 { /* Estilos para o h2 do article em telas muito pequenas */
         font-size: 1.3rem; /* Reduz o tamanho da fonte */
-    }
-
-    div { /* Estilos para a div do cabeçalho em telas muito pequenas */
-        display: flex; /* Habilita flexbox */
-        align-items: center; /* Alinha itens ao centro */
-        justify-content: center; /* Centraliza itens */
-        flex-direction: column; /* Organiza em coluna */
-        gap: 0.5rem; /* Espaçamento entre os itens */
     }
 
     .footer { /* Estilos para o rodapé em telas muito pequenas */

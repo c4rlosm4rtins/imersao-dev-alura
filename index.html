@@ -8,10 +8,12 @@
 </head>
 <body>
      <header>
-        <h1>Base de Conhecimentos de SO</h1>
-        <div>
-            <input type="text" id="campo-busca" placeholder="Digite um Sistema Operacional">
-            <button id="botao-busca" onclick="iniciarBusca()">BUSCAR</button>
+        <h1 id="site-title">Base de Conhecimentos de SO</h1>
+        <div class="search-container">
+            <input type="text" id="campo-busca" placeholder="Digite um sistema operacional ou tag...">
+            <button id="botao-busca" aria-label="Buscar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </button>
         </div>
      </header>
 
@@ -27,26 +29,15 @@
                 </p>
             </article>
         </section>
-        <section class="card-container">
-            <div>
-                <!--<article class="card">
-                    <h2>Debian</h2>
-                    <p>1995</p>
-                    <p>O Debian e um sistema operativo...</p>
-                    <p>Tags:</p>
-                    <a href="https://www.debian.org" target="_blank">Saiba mais</a>
-                </article> -->
-            </div>
-        </section>
      </main>
 
      <footer class="footer">
         <ul class="footer-links">
             <li>
-                <a href="https://github.com/c4rlosm4rtins">Github</a>
+                <a href="https://github.com/c4rlosm4rtins" target="_blank">Github</a>
             </li>
             <li>
-                <a href="https://www.linkedin.com/in/carlos-martins-850782258/">Linkedin</a>
+                <a href="https://www.linkedin.com/in/carlos-martins-850782258/" target="_blank">Linkedin</a>
             </li>
         </ul>
         <p>&copy; 2025 Carlos Martins. Todos os direitos reservados.</p>

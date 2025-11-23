@@ -4,10 +4,34 @@ let secaoIntro = document.querySelector("#secao-intro");
 let siteTitle = document.querySelector("#site-title");
 let dados = [];
 
+// Aplica tema (light | dark) e persiste em localStorage
+function applyTheme(theme) {
+    if (theme === 'light') {
+        document.body.classList.add('light-theme');
+    } else {
+        document.body.classList.remove('light-theme');
+    }
+    const toggle = document.querySelector('#theme-toggle');
+    if (toggle) toggle.setAttribute('aria-pressed', theme === 'light' ? 'true' : 'false');
+    localStorage.setItem('theme', theme);
+}
+
+function toggleTheme() {
+    const isLight = document.body.classList.contains('light-theme');
+    applyTheme(isLight ? 'dark' : 'light');
+}
+
 // Carrega os dados do JSON assim que a página é aberta
 window.addEventListener("DOMContentLoaded", async () => {
     let resposta = await fetch("data.json");
     dados = await resposta.json();
+    // Inicializa tema a partir do localStorage (padrão: dark)
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    applyTheme(savedTheme);
+    const themeToggle = document.querySelector('#theme-toggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+    }
 });
 
 // Adiciona o evento de busca em tempo real no campo de input

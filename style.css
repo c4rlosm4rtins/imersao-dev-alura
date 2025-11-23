@@ -13,6 +13,21 @@
     --border-color: #333; /* Cor de borda sutil */
 }
 
+/* Transições suaves entre temas */
+body {
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Tema claro (adiciona classe `light-theme` no body) */
+body.light-theme {
+    --bg-color: #f7f8fb;
+    --card-bg-color: #ffffff;
+    --secondary-color: #111827; /* texto escuro */
+    --tertiary-color: #4b5563; /* texto secundário */
+    --border-color: #e6e8eb;
+    --primary-color: #0b6efd; /* azul para destaque no claro */
+}
+
 /* Scrollbar personalizada para um look mais integrado */
 ::-webkit-scrollbar {
     width: 8px;
@@ -114,6 +129,49 @@ header h1:hover {
 #botao-busca:active {
     transform: scale(0.98); /* Efeito de clique (diminui o tamanho) */
 }
+
+/* Botão de alternância de tema */
+#theme-toggle.theme-toggle {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 9999;
+    width: 48px;
+    height: 48px;
+    padding: 0.45rem;
+    border-radius: 999px;
+    border: 1px solid var(--border-color);
+    background: var(--card-bg-color);
+    color: var(--secondary-color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(2,6,23,0.45);
+    transition: transform 0.12s ease, background-color 0.12s ease;
+}
+
+#theme-toggle.theme-toggle:hover {
+    transform: translateY(-3px);
+}
+
+@media (max-width: 480px) {
+    #theme-toggle.theme-toggle {
+        bottom: 1rem;
+        right: 1rem;
+        width: 40px;
+        height: 40px;
+        padding: 0.35rem;
+    }
+}
+
+/* Ícones: por padrão (tema escuro) mostramos o ícone da lua. */
+.icon { display: none; }
+.icon.icon-moon { display: inline; }
+body.light-theme .icon.icon-moon { display: none; }
+body.light-theme .icon.icon-sun { display: inline; }
+
 
 main {
     flex-grow: 1; /* Faz o main ocupar todo o espaço disponível entre o header e o footer */

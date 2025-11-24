@@ -62,4 +62,3 @@ Como enviar uma contribuição rápida:
 3. Faça as alterações e commit: `git commit -am "Minha melhoria"`
 4. Envie para o seu fork: `git push origin minha-melhora`
 5. Abra um Pull Request explicando a mudança.
-

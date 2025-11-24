@@ -1,5 +1,8 @@
 # Operating Systems Knowledge Base
 
+![GravacaodeTela2025-11-24as00 57 29-ezgif com-video-to-gif-converter (1)](https://github.com/user-attachments/assets/13ea8821-38cb-4344-8b59-945a39c2c287)
+
+
 A small interactive encyclopedia about Operating Systems — created as a project for Alura's "Imersão Dev". This site is lightweight, attractive, and responsive: perfect for learning, quick reference, or impressing recruiters on your GitHub.
 
 If you've made it this far, congratulations — it means you care about technology and appreciate well-styled code. Grab a coffee, scroll through the page, and enjoy exploring OS curiosities! ☕🖥️
